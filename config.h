@@ -78,12 +78,10 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *browsercmd[] = { TERM, "-e", "w3m", NULL };
-static const char *dmenucleansystemcmd[] = { "dmenu-clean-system", NULL };
+static const char *dmenucleansyscmd[] = { "dmenu-clean-sys", NULL };
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *dmenuhandlelinkcmd[] = { "dmenu-handle-link", NULL };
-static const char *getapplicationclasscmd[] = {
-	"get-application-class", NULL,
-};
+static const char *getappclscmd[] = { "get-app-cls", NULL };
 static const char *netstartcmd[] = { "doas", "sh", "/etc/netstart", NULL };
 static const char *makescreenshotcmd[] = { "make-screenshot", NULL };
 static const char *pkillherbecmd[] = { "pkill", "-SIGUSR1", "herbe", NULL };
@@ -92,7 +90,7 @@ static const char *signalsndioblockcmd[] = {
 };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *rebootcmd[] = { "doas", "reboot", NULL };
-static const char *setwallpapercmd[] = { "dmenu-set-wallpaper", NULL };
+static const char *setwpcmd[] = { "dmenu-set-wp", NULL };
 static const char *sfeedcursescmd[] = {
 	"sh", "-c", TERM " -e sfeed_curses ~/.sfeed/feeds/*", NULL,
 };
@@ -100,13 +98,13 @@ static const char *shutdowncmd[] = {
 	"doas", "shutdown", "-p", "now", NULL,
 };
 static const char *termcmd[] = { TERM, NULL };
-static const char *updatefeedscmd[] = { "update-feeds", NULL };
+static const char *updfeedscmd[] = { "upd-feeds", NULL };
 
 /* keys */
 #include "movestack.c"
 static const Key keys[] = {
 	/* modifier         key        function        argument */
-	{ MODKEY,           XK_a,      spawn,          {.v = getapplicationclasscmd} },
+	{ MODKEY,           XK_a,      spawn,          {.v = getappclscmd} },
 	{ MODKEY,           XK_b,      togglebar,      {0} },
 	{ MODKEY,           XK_d,      spawn,          {.v = dmenucmd} },
 	{ MODKEY,           XK_f,      fullscreen,     {0} },
@@ -123,14 +121,14 @@ static const Key keys[] = {
 	{ MODKEY,           XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,           XK_n,      spawn,          {.v = pkillherbecmd} },
 	{ MODKEY|ShiftMask, XK_n,      spawn,          {.v = netstartcmd} },
-	{ MODKEY,           XK_o,      spawn,          {.v = dmenucleansystemcmd} },
+	{ MODKEY,           XK_o,      spawn,          {.v = dmenucleansyscmd} },
 	{ MODKEY,           XK_p,      spawn,          {.v = shutdowncmd} },
 	{ MODKEY|ShiftMask, XK_p,      spawn,          {.v = rebootcmd} },
 	{ MODKEY,           XK_s,      spawn,          {.v = sfeedcursescmd} },
 	{ MODKEY,           XK_u,      spawn,          {.v = dmenuhandlelinkcmd} },
-	{ MODKEY|ShiftMask, XK_u,      spawn,          {.v = updatefeedscmd} },
+	{ MODKEY|ShiftMask, XK_u,      spawn,          {.v = updfeedscmd} },
 	{ MODKEY,           XK_w,      spawn,          {.v = browsercmd} },
-	{ MODKEY|ShiftMask, XK_w,      spawn,          {.v = setwallpapercmd} },
+	{ MODKEY|ShiftMask, XK_w,      spawn,          {.v = setwpcmd} },
 	{ MODKEY,           XK_Return, spawn,          {.v = termcmd} },
 	{ MODKEY,           XK_Return, zoom,           {0} },
 	{ MODKEY,           XK_Tab,    view,           {0} },
