@@ -19,8 +19,8 @@ static const int showbar = 1;
 /* 0 means bottom bar */
 static const int topbar = 1;
 static const char *fonts[] = {
-	"Iosevka Nerd Font Mono:size=9",
-	"EmojiOne:style=Color,Regular:size=11",
+	"Iosevka Nerd Font Mono:style=Regular:size=9",
+	"Noto Color Emoji:style=Regular:size=11",
 };
 static const char barfg[] = "#bbbbbb";
 static const char barbg[] = "#000000";
